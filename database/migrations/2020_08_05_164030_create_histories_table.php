@@ -15,6 +15,8 @@ class CreateHistoriesTable extends Migration
     {
         Schema::create('histories', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('post_id');
+            $table->string('edited_id');
             $table->timestamps();
         });
     }

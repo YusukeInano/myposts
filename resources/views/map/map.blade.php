@@ -1,23 +1,35 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <!-- CSRF Token -->
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <title>@yield('title')</title>
-
-        <!-- Scripts -->
-        <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
-        <script src="{{ secure_asset('js/app.js') }}" defer></script>
-        <script src="{{ secure_asset('js/admin_jquery.js') }}"></script>
-        <script src="{{ secure_asset('js/map.js') }}"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyCEpTH_YohJFB9n-B458TcUx9ViiaP1y4M&callback=initMap" async defer></script>
-        <script>
-            function initMap() {
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>My Map</title>
+  <style>
+    .map_wrapper {
+      position: relative;
+      width: 60%;
+      padding-top:56.25%;
+      border: 1px solid black;
+    }
+    .map_wrapper .target {
+      position: absolute; 
+      width: 100%; 
+      height: 100%; 
+      top: 0;
+      left: 0;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+  <div class="map_wrapper">
+  <div id="target" class="target"></div>
+  </div>
+  <input type="text" id="address">
+  <button id="search">検索</button>
+  <input type="text" id="search_results" size="50">
+  <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyCEpTH_YohJFB9n-B458TcUx9ViiaP1y4M&callback=initMap" async defer></script>
+  <script>
+    function initMap() {
       'use strict';
 
       var target = document.getElementById('target');
@@ -26,7 +38,6 @@
         zoom: 15,
         clickableIcons: false
       });
-      
       var geocoder = new google.maps.Geocoder();
 
       document.getElementById('search').addEventListener('click', function() {
@@ -108,31 +119,6 @@
         });
       });
     }
-    
-    
-        </script>
-        
-
-        <!-- Fonts -->
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
-        <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">
-        <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">
-    </head>
-    <body>
-        <div id="app">
-            <header class="header">
-                @include('layouts.header')
-            </header>
-            <main class="py-4">
-                @yield('content')
-            </main>
-            <footer class="footer bg-dark fixed-bottom">
-                @include('layouts.footer')
-            </footer>
-        </div>
-    </body>
+    </script>
+</body>
 </html>

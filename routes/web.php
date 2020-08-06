@@ -21,6 +21,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('post/edit', 'Admin\PostController@edit');
     Route::post('post/edit', 'Admin\PostController@update');
     Route::get('post/delete', 'Admin\PostController@delete');
+    Route::get('index', 'Admin\PostController@index');
+    
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {

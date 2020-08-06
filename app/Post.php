@@ -11,8 +11,6 @@ class Post extends Model
     public static $rules = array(
         'title' => 'required',
         'content' => 'required',
-        'place' => 'required',
-        'train_id' => 'required',
     );
     
     public function histories()

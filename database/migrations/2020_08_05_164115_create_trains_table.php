@@ -15,6 +15,7 @@ class CreateTrainsTable extends Migration
     {
         Schema::create('trains', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('train_name');
             $table->timestamps();
         });
     }

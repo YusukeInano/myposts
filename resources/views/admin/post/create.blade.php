@@ -47,47 +47,47 @@
                     <div class="form-group">
                         <label for="train_id">列車名</label>
                         <div class="form-check" id="train_id" name="train_id">
-                          <input class="form-check-input" type="radio" name="radio1" id="haruka" checked>
+                          <input class="form-check-input" type="radio" name="train_id" id="haruka" value="はるか" checked>
                           <label class="form-check-label" for="haruka">はるか</label>
                         </div>
                         <div class="form-check" id="train_id" name="train_id">
-                          <input class="form-check-input" type="radio" name="radio1" id="thunderbird">
+                          <input class="form-check-input" type="radio" name="train_id" id="thunderbird" value="サンダーバード">
                           <label class="form-check-label" for="thunderbird">サンダーバード</label>
                         </div>
                         <div class="form-check" id="train_id" name="train_id">
-                          <input class="form-check-input" type="radio" name="radio1" id="kuroshio">
+                          <input class="form-check-input" type="radio" name="train_id" id="kuroshio" value="くろしお">
                           <label class="form-check-label" for="kuroshio">くろしお</label>
                         </div>
                         <div class="form-check" id="train_id" name="train_id">
-                          <input class="form-check-input" type="radio" name="radio1" id="hakuto">
+                          <input class="form-check-input" type="radio" name="train_id" id="hakuto" value="スーパーはくと">
                           <label class="form-check-label" for="hakuto">スーパーはくと</label>
                         </div>
                         <div class="form-check" id="train_id" name="train_id">
-                          <input class="form-check-input" type="radio" name="radio1" id="hida">
+                          <input class="form-check-input" type="radio" name="train_id" id="hida" value="ワイドビューひだ">
                           <label class="form-check-label" for="hida">ワイドビューひだ</label>
                         </div>
                         <div class="form-check" id="train_id" name="train_id">
-                          <input class="form-check-input" type="radio" name="radio1" id="rocal">
+                          <input class="form-check-input" type="radio" name="train_id" id="rocal" value="普通">
                           <label class="form-check-label" for="rocal">普通</label>
                         </div>
                         <div class="form-check" id="train_id" name="train_id">
-                          <input class="form-check-input" type="radio" name="radio1" id="rapid">
+                          <input class="form-check-input" type="radio" name="train_id" id="rapid" value="快速">
                           <label class="form-check-label" for="rapid">快速</label>
                         </div>
                         <div class="form-check" id="train_id" name="train_id">
-                          <input class="form-check-input" type="radio" name="radio1" id="special_rapid">
+                          <input class="form-check-input" type="radio" name="train_id" id="special_rapid" value="新快速">
                           <label class="form-check-label" for="special_rapid">新快速</label>
                         </div>
                         <div class="form-check" id="train_id" name="train_id">
-                          <input class="form-check-input" type="radio" name="radio1" id="out_of">
+                          <input class="form-check-input" type="radio" name="train_id" id="out_of" value="回送">
                           <label class="form-check-label" for="out_of">回送</label>
                         </div>
                         <div class="form-check" id="train_id" name="train_id">
-                          <input class="form-check-input" type="radio" name="radio1" id="kamotsu">
+                          <input class="form-check-input" type="radio" name="train_id" id="kamotsu" value="貨物列車">
                           <label class="form-check-label" for="kamotsu">貨物列車</label>
                         </div>
                         <div class="form-check" id="train_id" name="train_id">
-                          <input class="form-check-input" type="radio" name="radio1" id="else">
+                          <input class="form-check-input" type="radio" name="train_id" id="else" value="その他">
                           <label class="form-check-label" for="else">その他</label>
                         </div>
                     </div>
@@ -101,8 +101,8 @@
                     </div>
                     <div class="map_wrapper">
                         <div id="target" class="target">
-                        {{ config('services.google-map.apikey') }}
                         </div>
+                    </div>
                         <div class="row">
                             <div class="form-group col-sm-6">
                         <input type="text" id="address" class="form-control">
@@ -111,7 +111,6 @@
                         <button id="search" class="form-control btn btn-success">検索</button>
                             </div>
                         </div>
-                    </div>
                     <div class="mt-5">
                         <a class="btn btn-secondary" href="">キャンセル</a>
                          {{ csrf_field() }}
