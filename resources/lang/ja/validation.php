@@ -149,7 +149,11 @@ return [
         'day' => '撮影日時',
         'title' => 'タイトル',
         'content' => '本文',
-        'train_id' => '列車名'
+        'train_id' => '列車名',
+        'name' => '名前',
+        'address' => '住所',
+        'child_age' => '子供の年齢',
+        'introduction' => '自己紹介'
         ],
 
 ];

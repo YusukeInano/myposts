@@ -1,13 +1,13 @@
 @extends('layouts.admin')
-@section('title', '投稿者新規登録')
+@section('title', '投稿者情報編集')
 @section('content')
     <div class="container mt-4">
         <div class="border p-4">
             <h1 class="h7 mb-4">
-                投稿者新規登録
+                投稿者情報編集
             </h1>
 
-            <form action="{{ action('Admin\ProfileController@create') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ action('Admin\ProfileController@update') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 
                 @if (count($errors) > 0)
@@ -21,7 +21,7 @@
                 <fieldset class="mb-4">
                     <div class="form-group">
                        <label>名前</label>
-                       <input type="text" name="name" class="form-control" placeholder="桂坂　川太郎" id="name">
+                       <input type="text" name="name" class="form-control" value="{{ $profiles_form->name }}">
                     </div>
                     <div class="form-group">
                         <label for="gender">性別</label>
@@ -39,25 +39,25 @@
                         <div class="form-row align-items-center">
                         <div class="col-auto">
                         <label class="sr-only" for="address1"></label>
-                        <input type="text" class="form-control mb-2" id="address1" placeholder="000" name="zip21" maxlength='3'>
+                        <input type="text" class="form-control mb-2" id="address1" value="{{ $profiles_form->zip21 }}" name="zip21" maxlength='3'>
                         </div>
                         <div class="col-auto">
                         <label class="sr-only" for="address2"></label>
-                        <input type="text" class="form-control mb-2" name="zip22" id="address2" placeholder="0000" maxlength='4' onKeyUp="AjaxZip3.zip2addr('zip21','zip22','addr21','addr21');">
+                        <input type="text" class="form-control mb-2" name="zip22" id="address2" value="{{ $profiles_form->zip22 }}" maxlength='4' onKeyUp="AjaxZip3.zip2addr('zip21','zip22','addr21','addr21');">
                         </div>
                         </div>
-                        <input type="text" name="addr21" class="form-control" id="address">
+                        <input type="text" name="addr21" class="form-control" id="address" value="{{ $profiles_form->addr21 }}">
                     </div>
                     <div class="form-group">
                         
                     </div>
                     <div class="form-group">
                         <label for="intrduction">自己紹介</label>
-                        <textarea name="introduction" rows="6" class="form-control" placeholder="自己紹介入力" id="introduction"></textarea>
+                        <textarea name="introduction" rows="6" class="form-control" id="introduction">{{ $profiles_form->introduction }}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="child_age">子供の年齢</label>
-                            <select id="child_age" class="form-control" name="child_age" value="child_age">
+                            <select id="child_age" class="form-control" name="child_age" value="child_age">{{ $profiles_form->child_age }}
                                 <option>0歳</option>
                                 <option>1歳</option>
                                 <option>2歳</option>
@@ -74,11 +74,11 @@
                                 <option>13歳以上</option>
                             </select>
                     </div>
-                    <div class="mt-5">
-                        <a class="btn btn-secondary" href="">キャンセル</a>
-                         {{ csrf_field() }}
-                    <input type="submit" class="btn btn-primary" value="登録">
-                    </div>
+                     <div class="form-group">
+                            <input type="hidden" name="id" value="{{ $profiles_form->id }}">
+                            {{ csrf_field() }}
+                            <input type="submit" class="btn btn-warning btn-block btn-lg" value="更新">
+                        </div>
                 </fieldset>
             </form>
         </div>

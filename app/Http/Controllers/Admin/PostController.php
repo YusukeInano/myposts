@@ -53,18 +53,38 @@ class PostController extends Controller
       return view('admin.post.index', ['posts' => $posts, 'cond_title' => $cond_title]);
     }
     
-    public function edit()
+    public function edit(Request $request)
     {
-      return view('admin.post.edit');
+      $posts = Post::find($request->id);
+      if (empty($posts)) {
+        abort(404);    
+      }
+      return view('admin.post.edit', ['posts_form' => $posts]);
     }
     
-    public function update()
+    public function update(Request $request)
     {
-      return redirect('admin/post/');
+      $this->validate($request, Post::$rules);
+      $posts = Post::find($request->id);
+      $posts_form = $request->all();
+      if (isset($posts_form['image'])) {
+        $path = $request->file('image')->store('public/image');
+        $posts->image_path = basename($path);
+        unset($posts_form['image']);
+      } elseif (isset($request->remove)) {
+        $posts->image_path = null;
+        unset($posts_form['remove']);
+      }
+      unset($posts_form['_token']);
+      $posts->fill($posts_form)->save();
+
+      return redirect('admin/index');
     }
     
-    public function delete()
+    public function delete(Request $request)
     {
-      return redirect('admin/post/');
+      $posts = Post::find($request->id);
+      $posts->delete();
+      return redirect('admin/index');
     }  
 }
