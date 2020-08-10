@@ -13,7 +13,6 @@
         <!-- Scripts -->
         <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
         <script src="{{ secure_asset('js/app.js') }}" defer></script>
-        <script src="{{ secure_asset('js/admin_jquery.js') }}"></script>
            
         <!-- Fonts -->
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -22,6 +21,12 @@
         <!-- Styles -->
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/front.css') }}" rel="stylesheet">
+　　　　<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"/>
+　　　　<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"/>
+        
+        <!-- slick -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+        <script src="{{ secure_asset('js/front_jquery.js') }}"></script>
     </head>
     <body>
         <div id="app">
@@ -32,7 +37,7 @@
                 @yield('content')
             </main>
             <footer class="footer">
-                @include('layouts.footer')
+                @include('main.footer')
             </footer>
         </div>
     </body>

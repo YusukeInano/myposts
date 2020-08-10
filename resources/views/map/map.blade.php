@@ -17,6 +17,8 @@
       top: 0;
       left: 0;
     }
+    
+
   </style>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
@@ -119,6 +121,14 @@
         });
       });
     }
+    (function($, window) {
+  $(function() {$('.slider').slick({
+    autoplay:true,
+    autoplaySpeed:5000,
+    dots:true,
+  });
+ });
+})(jQuery, window);
     </script>
 </body>
 </html>
