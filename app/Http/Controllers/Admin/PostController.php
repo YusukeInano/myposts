@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Post;
+use App\Comment;
 
 class PostController extends Controller
 {
@@ -77,6 +78,10 @@ class PostController extends Controller
       }
       unset($posts_form['_token']);
       $posts->fill($posts_form)->save();
+      
+      $comment = new Comment;
+      $comment->post_id = $post->id;
+      $comment->save();
 
       return redirect('admin/index');
     }

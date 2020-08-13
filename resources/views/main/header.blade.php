@@ -19,8 +19,8 @@
     </div>
     <ul class="header-navigation">
       <li><a href="{{ action('PostsController@index') }}">ホーム画面</a></li>
-      <li><a href="{{ action('Admin\ProfileController@create') }}" method="post">新規ユーザー登録</a></li>
-      <li><a href="#">ログイン画面</a></li>
+      <li><a href="{{ action('Admin\ProfileController@add') }}" method="get">新規ユーザー登録</a></li>
+      <li><a href="{{ action('MapController@showMap') }}" method="get">新規投稿登録</a></li>
       <li><a href="#">撮影地検索</a></li>
       <li><a href="#">列車接近状況</a></li>
       <li><a href="#">コンタクト</a></li>

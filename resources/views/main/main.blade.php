@@ -2,58 +2,43 @@
 @section('title', 'ホーム画面')
 @section('content')
     <div class="container">
-        <hr color="#c0c0c0">
-        @if (!is_null($headline))
-            <div class="row">
-                <div class="headline col-md-10 mx-auto">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="caption mx-auto">
-                                <div class="image">
-                                    @if ($headline->image_path)
-                                        <img src="{{ asset('storage/image/' . $headline->image_path) }}">
-                                    @endif
-                                </div>
-                                <div class="title p-2">
-                                    <h1>{{ str_limit($headline->title, 70) }}</h1>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <p class="body mx-auto">{{ str_limit($headline->content, 650) }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endif
-        <hr color="#c0c0c0">
-        <div class="row">
-            <div class="posts col-md-8 mx-auto mt-3">
+        <hr color="green">
+        <div class="infobox">
+        <div class="contents mt-4">
                 @foreach($posts as $post)
-                    <div class="post">
-                        <div class="row">
-                            <div class="text col-md-6">
-                                <div class="date">
-                                    {{ $post->updated_at->format('Y年m月d日') }}
-                                </div>
-                                <div class="title">
-                                    {{ str_limit($post->title, 150) }}
-                                </div>
-                                <div class="body mt-3">
-                                    {{ str_limit($post->content, 1500) }}
-                                </div>
-                            </div>
-                            <div class="image col-md-6 text-right mt-4">
+                     <div class="card mb-4">
+                             <div class="card-header">
+                             {{ str_limit($post->title, 20) }}
+                             </div>
+                             <div class="card-body">
+                               <p class="card-text">
+                               {{ str_limit($post->content, 200) }}
+                               </p>
+                               <div class="col-md-4">
+                               <a href="/post/{{ $post->id }}" role="button" class="btn btn-primary">続きを読む</a>
+                               </div>
+                               <div class="image1 col-md-6 text-right mt-4">
                                 @if ($post->image_path)
                                     <img src="{{ asset('storage/image/' . $post->image_path) }}">
                                 @endif
-                            </div>
+                               </div>
+                             </div>
+                             <div class="card-footer">
+                               <span class="mr-2">
+                               投稿日時 {{ $post->created_at->format('Y.m.d') }}
+                               </span>
+                               <span class="mr-2">
+                               撮影場所 {{ $post->place }}
+                               </span>
+                                @if ($post->comments->count())
+                               <span class="badge badge-primary">
+                                コメント {{ $post->comments->count() }}件
+                               </span>
+                                @endif
+                             </div>
                         </div>
-                    </div>
-                    <hr color="#c0c0c0">
                 @endforeach
-            </div>
         </div>
-    </div>
+        </div>
     </div>
 @endsection

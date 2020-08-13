@@ -40,3 +40,8 @@ Route::get('/map', 'MapController@showMap');
 Auth::routes();
 
 Route::get('/home', 'PostsController@index')->name('home');
+
+Route::get('home/store', 'CommentController@add')->name('add');
+Route::post('home/store', 'CommentController@store')->name('store');
+
+Route::post('/testform','AddressController@write1');

@@ -20,6 +20,10 @@
 
                 <fieldset class="mb-4">
                     <div class="form-group">
+                        <label for="place">撮影場所の住所</label>
+                            <input type="text" id="search_results" class="form-control" name="place" value="{{$data1['textbox1']}}">
+                    </div>
+                    <div class="form-group">
                        <label>撮影日時</label><br>
                        <input type="date" name="day" value="day" class="form-control">
                     </div>
@@ -95,22 +99,6 @@
                         <label for="image">列車の写真</label>
                             <input type="file" class="form-control-file" name="image">
                     </div>
-                    <div class="form-group">
-                        <label for="place">撮影場所の住所</label>
-                            <input type="text" id="search_results" class="form-control" name="place" value="{{ old('place') }}">
-                    </div>
-                    <div class="map_wrapper">
-                        <div id="target" class="target">
-                        </div>
-                    </div>
-                        <div class="row">
-                            <div class="form-group col-sm-6">
-                        <input type="text" id="address" class="form-control">
-                            </div>
-                            <div class="form-group col-sm-1">
-                        <button id="search" class="form-control btn btn-success">検索</button>
-                            </div>
-                        </div>
                     <div class="mt-5">
                         <a class="btn btn-secondary" href="">キャンセル</a>
                          {{ csrf_field() }}

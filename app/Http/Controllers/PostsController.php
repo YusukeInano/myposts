@@ -11,12 +11,18 @@ class PostsController extends Controller
     {
         $posts = Post::all()->sortByDesc('updated_at');
 
-        if (count($posts) > 0) {
-            $headline = $posts->shift();
-        } else {
-            $headline = null;
-        }
+        return view('main.main', ['posts' => $posts]);
+    }
+    
+    public function showDetail($post_id)
+    {
+        $posts = Post::find('$post_id');
+        
+        // if (is_null($posts)) {
+        //     \Session::flash('err_msg', 'データがありません');
+        //     return redirect(route('home'));
+        // }
 
-        return view('main.main', ['headline' => $headline, 'posts' => $posts]);
+        return view('main.showDetail', ['posts' => $posts,]);
     }
 }

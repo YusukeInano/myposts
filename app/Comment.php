@@ -9,8 +9,11 @@ class Comment extends Model
     protected $guarded = array('id');
 
     public static $rules = array(
-        'commenter' => 'required',
         'comment' => 'required',
-        'post_id' => 'required',
     );
+    
+     public function post()
+    {
+        return $this->belongsTo('App\Post');
+    }
 }

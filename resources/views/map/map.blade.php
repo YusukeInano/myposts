@@ -2,33 +2,126 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <title>My Map</title>
+  <title>撮影地登録</title>
   <style>
-    .map_wrapper {
-      position: relative;
-      width: 60%;
-      padding-top:56.25%;
-      border: 1px solid black;
-    }
-    .map_wrapper .target {
-      position: absolute; 
-      width: 100%; 
-      height: 100%; 
-      top: 0;
-      left: 0;
+    body {
+      background: #EEEEEE;
     }
     
+    .content {
+      background: #FFFFDD;
+      border-radius: 4px;
+    }
+    .container {
+      width: 1000px;
+      margin: 0 auto 40px auto;
+    }
+    
+    .header-title-area {
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
 
+    .logo {
+      font-size: 32px;
+    }
+    .text-sub {
+      color: #777;
+    }
+    
+    .target {
+      width: 1000px;
+      height: 500px;
+      margin: 0 auto 40px auto;
+    }
+    
+    .ledText {
+  overflow: hidden;
+  position: relative;
+  padding:5px 0;
+  color: #FFB400;
+  font-size: 60px;
+  font-weight: bold;
+  background: #333333;
+}
+
+/* グラデーションでドット */
+.ledText:after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(#0a0600 1px, transparent 0px), linear-gradient(0, #0a0600 1px, transparent 1px);
+  background-image: -webkit-linear-gradient(#0a0600 1px, transparent 0px), -webkit-linear-gradient(0, #0a0600 1px, transparent 1px);
+  background-size: 2px 2px;
+  z-index: 10;
+}
+
+/* スクロール */
+.ledText span {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%;
+  -webkit-animation-name: marquee;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 15s;
+  -moz-animation-name: marquee;
+  -moz-animation-timing-function: linear;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-duration: 15s;
+  animation-name: marquee;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 15s;
+}
+
+@-webkit-keyframes marquee {
+from   { -webkit-transform: translate(0%);}
+99%,to { -webkit-transform: translate(-100%);}
+}
+@-moz-keyframes marquee {
+from   { -moz-transform: translate(0%);}
+99%,to { -moz-transform: translate(-100%);}
+}
+@keyframes marquee {
+from   { transform: translate(0%);}
+99%,to { transform: translate(-100%);}
+}
+    
   </style>
+  
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  
 </head>
 <body>
-  <div class="map_wrapper">
-  <div id="target" class="target"></div>
+  <div class="container">
+    <div class="header-title-area">
+      <h1 class="logo">Train View For Child</h1>
+      <p class="text-sub">大好きな子供と大好きな列車を。</p>
+    </div>
+    <div class="map_wrapper">
+      <div id="target" class="target"></div>
+    </div>
+    <div class="content">
+      <p>＊撮影した場所を地図上でダブルクリックし、送信ボタンを押してください＊</p>
+      <input type="text" id="address">
+      <button id="search">検索</button>
+    <form action="{{ action('AddressController@write1') }}" method="post" enctype="multipart/form-data">
+          @csrf
+      <input type="text" id="search_results" size="50" name="textbox1">
+      <input type="submit" value="送信ボタン" >
+    </form>
+    </div>
   </div>
-  <input type="text" id="address">
-  <button id="search">検索</button>
-  <input type="text" id="search_results" size="50">
+  <div class="container">
+  <footer>
+    <p class="ledText"><span>ようこそ Train View For Child　へ</span></p>
+  </footer>
+  </div>
   <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyCEpTH_YohJFB9n-B458TcUx9ViiaP1y4M&callback=initMap" async defer></script>
   <script>
     function initMap() {
