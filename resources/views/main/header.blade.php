@@ -21,8 +21,8 @@
       <li><a href="{{ action('PostsController@index') }}">ホーム画面</a></li>
       <li><a href="{{ action('Admin\ProfileController@add') }}" method="get">新規ユーザー登録</a></li>
       <li><a href="{{ action('MapController@showMap') }}" method="get">新規投稿登録</a></li>
-      <li><a href="#">撮影地検索</a></li>
-      <li><a href="#">列車接近状況</a></li>
-      <li><a href="#">コンタクト</a></li>
+      <li><a href="{{ action('MapController@showKatsuragawa') }}" method="get">JR桂川駅通過時刻</a></li>
+      <li><a href="{{ action('MapController@showTrain') }}" method="get">列車接近上り</a></li>
+      <li><a href="{{ action('MapController@showTrain1') }}" method="get">列車接近下り</a></li>
     </ul>
   </div>

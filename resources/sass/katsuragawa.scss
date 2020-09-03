@@ -1,0 +1,217 @@
+.container {
+  position: absolute;
+}
+
+.content {
+  position: absolute;
+  height: 300px;
+  width: 760px;
+  background-color: #222;
+}
+
+img {
+  left: 28px;
+  position: absolute;
+  height: 100px;
+  width: 704px;
+}
+
+.trains {
+  position: absolute;
+  left: 28px;
+  height: 188px;
+  width: 704px;
+  margin-top: 100px;
+  background-color: #111;
+}
+
+.btn a {
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background: skyblue;
+  border-radius: 5px;
+  border-bottom: 4px solid #666;
+  color: black;
+  margin: 0 auto;
+  display: block;
+}
+
+.train5, .train6, .train7_0, .train8, .train9_0, .train0_3, .train1, .train2_0, .train3_1, .train4_2, .train10,
+.train11, .train12_0, .train13 {
+  position: absolute;
+  top: 0px;
+}
+
+.train0_1 {
+  position: absolute;
+  top: 0px;
+}
+
+.train0_5 {
+  position: absolute;
+  top: 0px;
+}
+
+.train7, .train9, .train0_2, .train2, .train3_0, .train4_1, .train12, .train14 {
+  position: absolute;
+  top: 36px;
+}
+
+.train0, .train4_0 {
+  position: absolute;
+  top: 72px;
+}
+
+.train4 {
+  position: absolute;
+  top: 108px;
+}
+
+.approaching0 img {
+  width: 295px;
+  height: 30px;
+  left: 127px;
+  -webkit-animation:blink 0.8s ease-in-out infinite alternate;
+  -moz-animation:blink 0.8s ease-in-out infinite alternate;
+  animation:blink 0.8s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes blink {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes blink {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@keyframes blink {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+.left img {
+  width: 20px;
+  height: 33px;
+  left: 0px;
+}
+
+.type img {
+  width: 100px;
+  height: 30px;
+  left: 25px;
+}
+
+.name img {
+  width: 115px;
+  height: 33px;
+  left: 127px;
+}
+
+.name1 img {
+  width: 20px;
+  height: 33px;
+  left: 243px;
+}
+
+.name2 img {
+  width: 20px;
+  height: 33px;
+  left: 263px;
+}
+
+.name3 img {
+  width: 20px;
+  height: 33px;
+  left: 283px;
+}
+.time1 img {
+  width: 20px;
+  height: 33px;
+  left: 305px;
+}
+
+.time2 img {
+  width: 20px;
+  height: 33px;
+  left: 325px;
+}
+
+.time3 img {
+  width: 20px;
+  height: 33px;
+  left: 353px;
+}
+
+.time4 img {
+  width: 20px;
+  height: 33px;
+  left: 380px;
+}
+
+.time5 img {
+  width: 20px;
+  height: 33px;
+  left: 400px;
+}
+
+.destination img {
+  width: 130px;
+  height: 30px;
+  left: 430px;
+}
+
+.delay img {
+  width: 20px;
+  height: 33px;
+  left: 680px;
+}
+
+
+
+.show0 {
+  position: absolute;
+  top: 144px;
+/* 電光掲示板 */
+  overflow: hidden;
+  position: relative;
+  padding:5px 0;
+  color: #FFB400;
+  font-size: 24px;
+  font-weight: bold;
+  }
+  
+  /* スクロール */
+  .show0 span {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%;
+    -webkit-animation-name: marquee;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 15s;
+    -moz-animation-name: marquee;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-duration: 15s;
+    animation-name: marquee;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 15s;
+  }
+  
+  @-webkit-keyframes marquee {
+  from   { -webkit-transform: translate(0%);}
+  99%,to { -webkit-transform: translate(-100%);}
+  }
+  @-moz-keyframes marquee {
+  from   { -moz-transform: translate(0%);}
+  99%,to { -moz-transform: translate(-100%);}
+  }
+  @keyframes marquee {
+  from   { transform: translate(0%);}
+  99%,to { transform: translate(-100%);}
+  }

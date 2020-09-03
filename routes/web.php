@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('post/create', 'Admin\PostController@add');
@@ -36,12 +33,18 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 Auth::routes();
 
 Route::get('/map', 'MapController@showMap');
+Route::get('/train', 'MapController@showTrain');
+Route::get('/train/down', 'MapController@showTrain1');
+Route::get('/katsuragawa', 'MapController@showKatsuragawa');
 
 Auth::routes();
 
 Route::get('/home', 'PostsController@index')->name('home');
+Route::get('/', 'PostsController@index');
+Route::get('/posts/{post}', 'PostsController@showDetail')->name('detail');
 
-Route::get('home/store', 'CommentController@add')->name('add');
-Route::post('home/store', 'CommentController@store')->name('store');
+Route::post('posts/{post}/comments', 'CommentController@store');
+Route::get('posts/{post}/comments/{comment}', 'CommentController@delete');
 
-Route::post('/testform','AddressController@write1');
+Route::post('/address','AddressController@write1');
+Route::post('/place','AddressController@write2');

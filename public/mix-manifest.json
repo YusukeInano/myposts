@@ -4,6 +4,12 @@
     "/css/app.css": "/css/app.css",
     "/css/admin.css": "/css/admin.css",
     "/css/front.css": "/css/front.css",
+    "/css/katsuragawa.css": "/css/katsuragawa.css",
     "/js/front_jquery.js": "/js/front_jquery.js",
-    "/js/map.js": "/js/map.js"
+    "/js/katsuragawa.js": "/js/katsuragawa.js",
+    "/js/katsuragawa_jquery.js": "/js/katsuragawa_jquery.js",
+    "/js/main.js": "/js/main.js",
+    "/js/map.js": "/js/map.js",
+    "/js/train.js": "/js/train.js",
+    "/js/train1.js": "/js/train1.js"
 }

@@ -6,11 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-    protected $guarded = array('id');
-
-    public static $rules = array(
-        'comment' => 'required',
-    );
+     protected $fillable = [
+         'comment'
+         ];
     
      public function post()
     {

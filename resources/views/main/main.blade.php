@@ -15,7 +15,7 @@
                                {{ str_limit($post->content, 200) }}
                                </p>
                                <div class="col-md-4">
-                               <a href="/post/{{ $post->id }}" role="button" class="btn btn-primary">続きを読む</a>
+                               <a href="{{ action('PostsController@showDetail', $post) }}" role="button" class="btn btn-primary btn-sm">続きを読む</a>
                                </div>
                                <div class="image1 col-md-6 text-right mt-4">
                                 @if ($post->image_path)
@@ -31,10 +31,15 @@
                                撮影場所 {{ $post->place }}
                                </span>
                                 @if ($post->comments->count())
-                               <span class="badge badge-primary">
-                                コメント {{ $post->comments->count() }}件
+                               <span class="mr-2">
+                                <a href="{{ action('PostsController@showDetail', $post) }}" role="button" class="btn btn-success btn-sm">コメント {{ $post->comments->count() }}件</a>
                                </span>
                                 @endif
+                                <form action="{{ action('AddressController@write2') }}" method="post" enctype="multipart/form-data">
+                                     @csrf
+                                   <input type="hidden" id="search_results"　name="textbox2" value="{{ $post->place }}">
+                                   <input type="submit" value="撮影地検索" class="btn btn-outline-primary btn-sm">
+                                </form>
                              </div>
                         </div>
                 @endforeach

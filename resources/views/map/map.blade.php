@@ -35,63 +35,6 @@
       margin: 0 auto 40px auto;
     }
     
-    .ledText {
-  overflow: hidden;
-  position: relative;
-  padding:5px 0;
-  color: #FFB400;
-  font-size: 60px;
-  font-weight: bold;
-  background: #333333;
-}
-
-/* グラデーションでドット */
-.ledText:after {
-  content: ' ';
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-image: linear-gradient(#0a0600 1px, transparent 0px), linear-gradient(0, #0a0600 1px, transparent 1px);
-  background-image: -webkit-linear-gradient(#0a0600 1px, transparent 0px), -webkit-linear-gradient(0, #0a0600 1px, transparent 1px);
-  background-size: 2px 2px;
-  z-index: 10;
-}
-
-/* スクロール */
-.ledText span {
-  display: inline-block;
-  white-space: nowrap;
-  padding-left: 100%;
-  -webkit-animation-name: marquee;
-  -webkit-animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-duration: 15s;
-  -moz-animation-name: marquee;
-  -moz-animation-timing-function: linear;
-  -moz-animation-iteration-count: infinite;
-  -moz-animation-duration: 15s;
-  animation-name: marquee;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-duration: 15s;
-}
-
-@-webkit-keyframes marquee {
-from   { -webkit-transform: translate(0%);}
-99%,to { -webkit-transform: translate(-100%);}
-}
-@-moz-keyframes marquee {
-from   { -moz-transform: translate(0%);}
-99%,to { -moz-transform: translate(-100%);}
-}
-@keyframes marquee {
-from   { transform: translate(0%);}
-99%,to { transform: translate(-100%);}
-}
-    
   </style>
   
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -103,6 +46,9 @@ from   { transform: translate(0%);}
       <h1 class="logo">Train View For Child</h1>
       <p class="text-sub">大好きな子供と大好きな列車を。</p>
     </div>
+    <div class="col-md-4">
+        　　<a href="{{ action('PostsController@index') }}" role="button" class="btn btn-success btn-sm">ホーム画面に戻る</a>
+        </div>
     <div class="map_wrapper">
       <div id="target" class="target"></div>
     </div>
@@ -119,7 +65,6 @@ from   { transform: translate(0%);}
   </div>
   <div class="container">
   <footer>
-    <p class="ledText"><span>ようこそ Train View For Child　へ</span></p>
   </footer>
   </div>
   <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyCEpTH_YohJFB9n-B458TcUx9ViiaP1y4M&callback=initMap" async defer></script>

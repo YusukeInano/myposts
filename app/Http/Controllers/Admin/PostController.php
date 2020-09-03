@@ -79,10 +79,6 @@ class PostController extends Controller
       unset($posts_form['_token']);
       $posts->fill($posts_form)->save();
       
-      $comment = new Comment;
-      $comment->post_id = $post->id;
-      $comment->save();
-
       return redirect('admin/index');
     }
     

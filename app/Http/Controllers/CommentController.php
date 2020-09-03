@@ -4,27 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Comment;
+use App\Post;
 
 class CommentController extends Controller
 {
-     public function add()
-    {
-      return view('comment.create');
-    }
     
+   public function store(Request $request, Post $post) {
+       
+    $this->validate($request, [
+      'comment' => 'required'
+    ]);
+    $comment = new Comment(['comment' => $request->comment]);
+    $post->comments()->save($comment);
+    return redirect()->action('PostsController@showDetail', $post);
+  }
+  
+   public function delete(Post $post, Comment $comment) {
+     $comment->delete();
+     return redirect()->back();
+  }
     
-    public function store(Request $request)
-    {
-      $this->validate($request, Comment::$rules);
+  }
 
-      $comments = new Comment;
-      $form = $request->all();
-
-      unset($form['_token']);
-
-      $comments->fill($form);
-      $comments->save();
-      
-      return redirect('/home/store');
-    }
-}
+    

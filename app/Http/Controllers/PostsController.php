@@ -14,15 +14,8 @@ class PostsController extends Controller
         return view('main.main', ['posts' => $posts]);
     }
     
-    public function showDetail($post_id)
+    public function showDetail(Post $post)
     {
-        $posts = Post::find('$post_id');
-        
-        // if (is_null($posts)) {
-        //     \Session::flash('err_msg', 'データがありません');
-        //     return redirect(route('home'));
-        // }
-
-        return view('main.showDetail', ['posts' => $posts,]);
+        return view('main.showDetail', ['post' => $post]);
     }
 }

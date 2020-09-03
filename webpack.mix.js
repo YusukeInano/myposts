@@ -17,4 +17,10 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/admin_jquery.js', 'public/js')
     .js('resources/js/map.js', 'public/js')
     .sass('resources/sass/front.scss', 'public/css')
-    .js('resources/js/front_jquery.js', 'public/js');
+    .sass('resources/sass/katsuragawa.scss', 'public/css')
+    .js('resources/js/front_jquery.js', 'public/js')
+    .js('resources/js/katsuragawa_jquery.js', 'public/js')
+    .js('resources/js/main.js', 'public/js')
+    .js('resources/js/train.js', 'public/js')
+    .js('resources/js/train1.js', 'public/js')
+    .js('resources/js/katsuragawa.js', 'public/js');

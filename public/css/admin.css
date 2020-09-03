@@ -61,3 +61,76 @@ body {
   text-align: center;
 }
 
+.image1 img {
+  width: 250px;
+}
+
+#map {
+  position: relative;
+  width: 640px;
+  height: 300px;
+}
+
+#express {
+  position: absolute;
+  z-index: 30;
+  left: 0;
+  width: 40px;
+}
+
+#osaka {
+  position: relative;
+  float: left;
+  z-index: 20;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#shinosaka {
+  position: relative;
+  float: left;
+  z-index: 20;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#takatsuki {
+  position: relative;
+  float: left;
+  z-index: 20;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#katsuragawa {
+  position: relative;
+  float: left;
+  z-index: 20;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#kyoto {
+  position: relative;
+  float: left;
+  z-index: 20;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#info {
+  position: relative;
+  text-align: center;
+  padding-top: 10px;
+}
+
